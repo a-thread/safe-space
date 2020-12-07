@@ -49,11 +49,11 @@ Once in the app, users can:
 
 ## Contributors
 This was a joint project between the following developers:
+- [Aiden Threadgoode](https://github.com/a-thread)
+- [Brendan Leighton](https://github.com/BR3NDAN-L8N)
 - [Mary Ervin](https://github.com/mwoodervin)
 - [Chase Johnston](https://github.com/johnstoc13)
-- [Brendan Leighton](https://github.com/BR3NDAN-L8N)
 - [Michael "Macks" McCosh](https://github.com/macksm3)
-- [Aiden Threadgoode](https://github.com/a-thread)
 
 ## Questions & Collaboration
 If you have questions, suggestions, or experience any bugs in the application, please submit an issue in the GitHub repository. 
