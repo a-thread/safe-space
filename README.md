@@ -51,8 +51,8 @@ Once in the app, users can:
 This was a joint project between the following developers:
 - [Aiden Threadgoode](https://github.com/a-thread)
 - [Brendan Leighton](https://github.com/BR3NDAN-L8N)
-- [Mary Ervin](https://github.com/mwoodervin)
 - [Chase Johnston](https://github.com/johnstoc13)
+- [Mary Ervin](https://github.com/mwoodervin)
 - [Michael "Macks" McCosh](https://github.com/macksm3)
 
 ## Questions & Collaboration
