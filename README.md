@@ -27,7 +27,7 @@ Once in the app, users can:
 
 Due to the nature of this application, the platform was designed with mobile responsiveness in mind. Users can expect an enjoyable experience on their mobile devices while traveling amongst various safe spaces.
 
-<img width="492" alt="Mobile" src="https://user-images.githubusercontent.com/66090689/101649100-832f5a00-3a08-11eb-9b64-19f5af55e8d7.png">
+![login screen](./client/src/assets/images/demo.gif)
 
 
 #### Deployed Application: [Check out Safe Space today!](https://safe-space-ne.herokuapp.com/)
@@ -65,7 +65,7 @@ If you have questions, suggestions, or experience any bugs in the application, p
 
 If you would like to contribute to this project, please fork the repository and create a pull request for your changes.
 
-## Thanks
+## Shout Outs
 - Many thanks to our TA team, Bobby "Big Brain" Hoffman and Mike "Pop Pop" Fearnley, for their assistance.
 
 ## License
