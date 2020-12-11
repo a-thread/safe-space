@@ -66,7 +66,7 @@ If you have questions, suggestions, or experience any bugs in the application, p
 If you would like to contribute to this project, please fork the repository and create a pull request for your changes.
 
 ## Shout Outs
-- Many thanks to our TA team, Bobby "Big Brain" Hoffman and Mike "Pop Pop" Fearnley, for their assistance.
+> Many thanks to our TA team, [Bobby "Big Brain" Hoffman](https://github.com/rhoffman103) and [Mike "Pop Pop" Fearnley](https://github.com/fearmichael), for their assistance.
 
 ## License
 This repository is licensed under the MIT License.
