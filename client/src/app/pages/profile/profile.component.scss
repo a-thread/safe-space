@@ -1,34 +1,76 @@
 mat-card {
-    margin: 15px 30px!important;
-    background-color: #35485e;
+  margin: 0 30px !important;
+  background-color: #35485e;
 
-    .text {
-        font-size: 20px;
-        text-align: center;
-        font-family: 'Audiowide', cursive;
-        color: #fff;
-    }
+  .text {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    color: #fff;
 
-    img {
-        max-height: 150px;
-        max-width: 150px;
-        border-radius: 50%;
+    &.email {
+      font-size: 18px;
     }
-    mat-card-title {
-        padding: 10px 20px;
-    }
-    span {
-        color: #ADFFE3;
-    }
+  }
+
+  img {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 50%;
+  }
+
+  mat-card-title {
+    padding: 10px 20px;
+  }
+
+  span {
+    color: #ADFFE3;
+  }
+
+  .flex-item {
+    min-width: 250px;
+  }
 }
 
 .edit-profile {
-    margin-top: 80px;
-    @media screen and (max-width: 573px) {
-        margin-top: 30px;
-    }
+  margin-top: 50px;
+
+  @media screen and (max-width: 573px) {
+    margin-top: 10px;
+  }
 }
 
 app-userform {
-    margin: 15px 30px 0px!important;
+  margin: 15px 30px 0px !important;
+}
+
+form {
+  @media screen and (max-width: 530px) {
+    margin: 20px 0px;
+  }
+}
+
+.showDetails {
+  background-color: rgba(0, 0, 0, .5);
+  margin: 40px;
+  text-align: left;
+  color: white;
+  width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+
+  h2 {
+    text-align: center;
+  }
+
+  app-button {
+    margin: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    max-width: 80vw;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
 }

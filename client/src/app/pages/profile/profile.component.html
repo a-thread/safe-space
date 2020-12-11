@@ -1,47 +1,85 @@
 <app-header title="Profile"></app-header>
-<div class="edit-profile" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayout.sm="row wrap"
+<div class="edit-profile" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="50px" fxLayout.sm="row wrap"
     fxLayout.xs="row wrap">
 
+    <!-- User Profile Box -->
     <mat-card fxLayout="column" fxLayoutAlign="space-around center">
+        <!-- username -->
         <mat-card-title *ngIf="user" class="text">Hi <span>{{ user.username}}</span>!</mat-card-title>
-        <img mat-card-image *ngIf="user" [src]="user.photo" alt="Profile Picture">
-        <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
+        <!-- photo -->
+        <img mat-card-image *ngIf="user.photo" [src]="user.photo" alt="Profile Picture">
+        <!-- pronouns -->
+        <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span>
+        </mat-card-subtitle>
         <!-- <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle> -->
-        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <p>{{ user.moreInfo }}</p></mat-card-content>
+        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <span>
+                <p>{{ user.moreInfo }}</p>
+            </span></mat-card-content>
     </mat-card>
-    
-    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)"
-    fxLayout="column"
-        fxLayoutAlign="center center" flxLayout="flex-container">
-    
+
+    <form *ngIf="!profileData; else thankUser" [formGroup]="userProfileForm"
+        (ngSubmit)="onProfileUpdate(userProfileForm.value)" fxLayout="column" fxLayoutAlign="center center"
+        flxLayout="flex-container">
+
         <!-- username entry -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Username</mat-label>
             <input matNativeControl placeholder="username" formControlName="username" matInput>
         </mat-form-field>
-    
-        <!-- email entry - autofilled from login? -->
+
+        <!-- email entry -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Email</mat-label>
-            <input matNativeControl placeholder="email" formControlName="email" matInput>
+            <input matNativeControl *ngIf="user" placeholder="email" formControlName="email" matInput>
+
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
-    
-        <!-- preferred pronoun entry with dropdown menu -->
+
+        <!-- preferred pronoun entry -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Preferred Pronoun</mat-label>
             <input matNativeControl placeholder="pronouns" formControlName="pronouns" matInput>
         </mat-form-field>
-    
+
         <!-- location entry -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Location</mat-label>
             <input matNativeControl placeholder="location" formControlName="location" matInput>
         </mat-form-field>
-    
+
+        <!-- Photo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Photo</mat-label>
+            <input matNativeControl placeholder="Paste a link to a photo" formControlName="photo" matInput>
+        </mat-form-field>
+
+        <!-- Bio/moreInfo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Bio</mat-label>
+            <textarea matNativeControl placeholder="Tell us about you!" formControlName="moreInfo" matInput></textarea>
+        </mat-form-field>
+
         <div fxLayout="row" fxLayoutAlign="center center">
             <!-- submit button -->
             <button mat-raised-button type="submit" [disabled]="!userProfileForm.valid">Submit</button>
         </div>
     </form>
 </div>
+
+
+<ng-template #thankUser>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="showDetails">
+            <h2>Your details have been updated!</h2>
+            <h4 *ngIf="profileData.username">Username: {{profileData.username}}</h4>
+            <h4 *ngIf="profileData.email">Email: {{profileData.email}}</h4>
+            <h4 *ngIf="profileData.pronouns">Preferred Pronouns: {{profileData.pronouns}}</h4>
+            <h4 *ngIf="profileData.location">Location: {{profileData.location}}</h4>
+            <h4 *ngIf="profileData.moreInfo">Bio: {{profileData.moreInfo}} </h4>
+            <div class="btnRow" fxLayout="row" fxLayoutAlign="center">
+                <app-button path="/explore" label="explore"></app-button>
+                <app-button path="/connect" label="connect"></app-button>
+            </div>
+        </div>
+    </div>
+</ng-template>

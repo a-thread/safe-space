@@ -7,24 +7,26 @@ div.chatContent {
       width: 90vw;
     }
   }
-  
+
 
   div.messages {
     background-color: rgba(30, 52, 75, .8);
     border-radius: 5px;
     padding: 10px;
   }
+
   p {
     color: white;
     font-size: 20px;
 
-    // &:nth-child(even) {
-    //   color: hotpink;
-    // }
-
-    span.userName {
-      font-weight: 600;
+    span {
+      font-weight: 500;
+      color: #ADFFE3;
     }
+  }
+
+  mat-button {
+    margin: 5px;
   }
 }
 
@@ -36,5 +38,4 @@ textarea {
   font-size: 1.2em;
   resize: none;
   border: none;
-} 
-
+}

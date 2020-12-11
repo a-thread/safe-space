@@ -1,6 +1,13 @@
 <app-header class="title" title='Help Expand Our Orbit'></app-header>
+<br>
 
 <div class="formContainer" *ngIf="!post; else formInfo" fxLayout="column" fxLayoutAlign="center center" novalidate>
+    <div class="info-item showDetails">
+        <p>Please add a business or community resource that you have used and would recommend as LGBTQ-friendly.</p>
+        <p>Our goal is to expand the universe safely for all members. <br> To that end, entries to this list are monitored.</p>
+        <p>Any entry that compromises the integrity of the list will be removed and may lead to the contributing member's 
+            removal from Safe Space.</p>
+    </div>
     <!-- fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" novalidate> -->
     <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value)" class="form">
 
@@ -8,7 +15,7 @@
         <mat-form-field class="field-style flex-item">
             <mat-label>Business Type</mat-label>
             <mat-select formControlName="type" [(value)]="selectedType" required>
-                <mat-option placeholder="Select One" value="cafe">coffee shop</mat-option>
+                <mat-option placeholder="Select One" value="coffee shops">coffee shop</mat-option>
                 <mat-option placeholder="Select One" value="restaurant">restaurant</mat-option>
                 <mat-option placeholder="Select One" value="resource">resource</mat-option>
                 <mat-option placeholder="Select One" value="misc">misc</mat-option>
@@ -112,7 +119,7 @@
             <h4>Website: {{post.website}}</h4>
             <div class="btnRow" fxLayout="row" fxLayoutAlign="center">
                 
-                <app-button path="addBusiness" label="add another"></app-button>
+                <app-button path="/addBusiness" label="add another"></app-button>
             </div>
         </div>
     </div>

@@ -10,15 +10,16 @@ import { HttpClient } from '@angular/common/http';
 
 export class ResourceFormComponent implements OnInit {
 
-  businessForm: FormGroup;
-  titleAlert: string = 'This field is required';
-  post: any = '';
-  selectedState = 'option2';
-  selectedType = 'option2';
-  selectedBool = 'option2';
-
-
   constructor( private formBuilder: FormBuilder, private http: HttpClient ) { }
+  
+  
+  public businessForm: FormGroup;
+  public titleAlert: string = 'This field is required';
+  public post: any = '';
+  public selectedState = 'option2';
+  public selectedType = 'option2';
+  public selectedBool = 'option2';
+
 
   ngOnInit() {
     this.createForm();

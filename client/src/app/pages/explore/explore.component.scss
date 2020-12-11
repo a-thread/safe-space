@@ -1,52 +1,6 @@
 div.planetsContainer {
-  min-height: 55vh;
-}
-
-// planet styling
-app-planet {
-  background-image: url('/assets/images/planets/1.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 200px;
-  width: 200px;
-}
-
-app-planet:nth-of-type(even) {
-  @media screen and (max-width: 529px) {
-    margin: 10px !important;
-  }
-
-  @media screen and (min-width: 530px) {
-    height: 230px;
-    width: 230px;
-    margin: 0;
-    margin-top: 40px;
-  }
-}
-
-app-planet:nth-of-type(odd) {
-  @media screen and (max-width: 479px) {
-    margin: 10px !important;
-  }
-
-  margin-top: 0px;
-}
-
-app-planet:nth-of-type(2) {
-  background-image: url('/assets/images/planets/2.png');
-}
-
-app-planet:nth-of-type(3) {
-  background-image: url('/assets/images/planets/3.png');
-}
-
-app-planet:nth-of-type(4) {
-  background-image: url('/assets/images/planets/4.png');
-}
-
-app-planet:nth-of-type(5) {
-  background-image: url('/assets/images/planets/5.png');
+  min-height: 45vh;
+  padding: 0 50px;
 }
 
 h6 {
@@ -67,5 +21,51 @@ h6 {
   @media screen and (max-width: 479px) {
     font-size: 4vw;
     margin-top: 20px;
+  }
+}
+
+// planet styling
+app-planet {
+  background-image: url('/assets/images/planets/1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+
+  &:nth-of-type(even) {
+    @media screen and (min-width: 530px) {
+      height: 230px;
+      width: 230px;
+      margin: 0;
+      margin-top: 40px;
+    }
+    @media screen and (max-width: 529px) {
+      margin: 10px !important;
+    }
+  }
+
+  &:nth-of-type(odd) {
+    margin-top: 0px;
+
+    @media screen and (max-width: 479px) {
+      margin: 10px !important;
+    }
+  }
+
+  &:nth-of-type(2) {
+    background-image: url('/assets/images/planets/2.png');
+  }
+
+  &:nth-of-type(3) {
+    background-image: url('/assets/images/planets/3.png');
+  }
+  
+  &:nth-of-type(4) {
+    background-image: url('/assets/images/planets/4.png');
+  }
+  
+  &:nth-of-type(5) {
+    background-image: url('/assets/images/planets/5.png');
   }
 }

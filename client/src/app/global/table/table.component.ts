@@ -20,7 +20,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   public resourceType: string;
   public backUrl: string;
 
-  public displayedColumns: string[] = ['type', 'name', 'city', 'state', 'description', 'website'];
+  public displayedColumns: string[] = ['type', 'name', 'city', 'state', 'description', 'phone', 'memberOwned', 'website',];
   public dataSource = new MatTableDataSource([]);
   public businessesArr: IBusiness[];
 
@@ -72,7 +72,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   handleTitle(string) {
     if (string !== "misc") {
-      return this.pageTitle = string.charAt(0).toUpperCase() + string.slice(1) + "s";
+      return this.pageTitle = string + "s";
     } else {
       return this.pageTitle = string.charAt(0).toUpperCase() + string.slice(1);
     }

@@ -44,6 +44,7 @@ export class UsersService {
         reviewedBusinesses: [string],
         location: string,
         moreInfo: string,
+        photo: string
     ) {
         const newUser = new this.userModel({
             subId,
@@ -56,6 +57,7 @@ export class UsersService {
             reviewedBusinesses,
             location,
             moreInfo,
+            photo
         });  //  "this.userModel" comes from the @InjectModel from the constructor above, it creates a new object from the users.model.ts blueprint
         const result = await newUser.save();
 
@@ -96,6 +98,7 @@ export class UsersService {
         reviewedBusinesses: [string],
         location: string,
         moreInfo: string,
+        photo: string
     ) {
         const userId = await this.getUserIdByFindingAuthSub(subId);
         if (userId) {
@@ -127,6 +130,9 @@ export class UsersService {
             if (moreInfo) {
                 updatedUser.moreInfo = moreInfo;
             }
+            if (photo) {
+                updatedUser.photo = photo;
+            }
             updatedUser.save();
         } else {
             await this.insertUser(
@@ -139,7 +145,8 @@ export class UsersService {
                 favoriteBusinesses,
                 reviewedBusinesses,
                 location,
-                moreInfo
+                moreInfo,
+                photo
             );
         }
     }

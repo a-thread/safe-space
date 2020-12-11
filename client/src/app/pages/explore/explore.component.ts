@@ -10,7 +10,7 @@ import { UserSessionStorageService } from "../../services/webstorage.service";
     styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
-    public user;
+    public user: { username: string; };
     public welcomeTitle: string;
 
     constructor(public auth: AuthService, public storage: UserSessionStorageService) { }
@@ -21,7 +21,6 @@ export class ExploreComponent implements OnInit {
         this.auth.userProfile$.subscribe(async data => {
             await this.storage.setupLocalStorage(data);
             const userData = this.storage.getDataFromLocal();
-            console.log("I'm your user data === ", userData);
             this.user = userData;
             this.welcomeTitle = "Welcome " + this.user.username + "!";
         })

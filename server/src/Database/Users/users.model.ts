@@ -32,6 +32,9 @@ export const UserSchema = new mongoose.Schema({
     },
     moreInfo: {
         type: String
+    },
+    photo: {
+        type: String
     }
 });
 
@@ -47,4 +50,5 @@ export interface User extends mongoose.Document {  //  this interface gets added
     reviewedBusinesses: [string];
     moreInfo: string;
     subId: string;
+    photo: string;
 }

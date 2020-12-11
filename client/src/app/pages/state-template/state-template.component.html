@@ -13,4 +13,9 @@
     <app-planet pathName={{miscPath}} label="Misc"></app-planet>
 </div>
 
-<app-button path="/addBusiness" label="Add a Business"></app-button>
+<div class="button" fxLayout="row" fxLayoutAlign="center center">
+    <!-- Back -->
+    <button mat-fab color="primary" aria-label="button with back icon" routerLink="/explore"> back </button>
+    <!-- Add Business -->
+    <app-button path="/addBusiness" label="Add a Business"></app-button>
+</div>

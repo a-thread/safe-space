@@ -29,44 +29,42 @@ export class UserSessionStorageService {
     // }
 
     public async setupLocalStorage(authData) {
-        console.log('start: setUpLocalStorage');
+        // console.log('start: setUpLocalStorage');
 
-        console.log('authData ', authData);
+        // console.log('authData ', authData);
 
         let dbData = await this.getDataFromDb(authData.sub);
 
         if (!dbData) {
-            console.log('\nNO DB DATA\n');
-
-            dbData = await this.configureAuthData(authData);
-
+            // console.log('\nNO DB DATA\n');
+            dbData = this.configureAuthData(authData);
             this.saveDataToDb(dbData);
         }
 
-        console.log('dbData returned to setupLocalStorage', dbData);
+        // console.log('dbData returned to setupLocalStorage', dbData);
 
         this.saveDataLocally(dbData);
 
-        console.log('end: setUpLocalStorage');
+        // console.log('end: setUpLocalStorage');
 
     }
 
     public getDataFromLocal(): any {
-        console.log('start: getDataFromLocal');
+        // console.log('start: getDataFromLocal');
 
         const localStorage = this.storage.get(STORAGE_KEY) || {};
-        console.log('data from local storage', localStorage);
+        // console.log('data from local storage', localStorage);
 
 
-        console.log('end: getDataFromLocal');
+        // console.log('end: getDataFromLocal');
 
         return localStorage;
     }
 
-    private configureAuthData(authData) {
+    private configureAuthData(authData: { sub: string; name: string; email: string; nickname: string; picture: string; }) {
 
         let subArray = authData.sub.split('|');  //  original style: auth|23498671034958
-        console.log('subArray === ', subArray);
+        // console.log('subArray === ', subArray);
 
         let nameArray = ['', ''];
         if (!authData.name.split('').includes("@")) {
@@ -84,31 +82,31 @@ export class UserSessionStorageService {
         }
     }
 
-    private async getDataFromDb(sub) {
-        console.log('start: getDataFromDb');
+    private async getDataFromDb(sub: string) {
+        // console.log('start: getDataFromDb');
 
         const parsedSub = sub.split('|');
 
         const dbData = await this.http.get(`/api/user/sub/all/${parsedSub[1]}`).toPromise();
-        console.log('\nresponse from DB using sub - should be all user data === ', dbData);
+        // console.log('\nresponse from DB using sub - should be all user data === ', dbData);
 
-        console.log('end: getDataFromDb');
+        // console.log('end: getDataFromDb');
 
         return dbData[0];
 
     }
 
-    public saveDataLocally(data) {
-        console.log('start: saveDataLocally');
+    public saveDataLocally(data: any) {
+        // console.log('start: saveDataLocally');
 
-        console.log('what is being saved', data);
+        // console.log('what is being saved', data);
 
         this.storage.set(STORAGE_KEY, data);
 
-        console.log('end: saveDataLocally');
+        // console.log('end: saveDataLocally');
     }
 
-    public async saveDataToDb(data) {
+    public async saveDataToDb(data: any) {
         const newUserId = await this.http.post('api/user', data).toPromise();
         return newUserId;
     }

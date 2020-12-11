@@ -1,53 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+// responsible for centering the about card
 div.background {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
-img.alien {
-  background: rgb(255, 255, 255, 0.8);
-  height: 100px;
-}
-
-mat-card.about-card {
+mat-card {
   text-align: center;
-  background: rgb(255, 255, 255, 0.8);
-  border-radius: 45px;
-  padding: 20px 50px;
+  background: rgb(255, 255, 255, 0.7);
+  border-radius: 25px;
+  padding: 2rem 3rem;
+  margin: 30px 20px 10px 20px;
   color: #1E344B;
   font-weight: 800;
-  max-width: 300px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
+  max-width: 500px;
 
-mat-card-title {
-  font-family: 'Open Sans', sans-serif;
-  padding: 10px;
-}
-
-mat-card-actions {
-  padding: 10px;
-
-  button.mat-raised-button {
-    background-color: #6EBE44;
+  @media screen and (max-width: 400px) {
+    margin: 20px;
+    padding: 20px;
   }
-}
 
-h1.safe-space {
-  font-size: 3rem;
-  line-height: normal;
-  font-family: 'Audiowide', cursive;
-  color: #1E344B;
-  margin: 0;
-}
+  mat-card-title {
+    font-size: 3rem;
+    line-height: normal;
+    font-family: 'Audiowide', cursive;
+    color: #1E344B;
+    margin: 0;
+    @media screen and (max-width: 400px) {
+      font-size: 2rem;
+    }
+  }
 
-p {
-  margin: 0px;
-}
+  p {
+    text-align: left;
+    font-weight: 500;
+    font-size: 2.2vh;
 
-.btnColor {
-  background-color: #1E344B;
-  color: #ADFFE3;
+    // adding breaks between p
+    &:nth-child(odd) {
+      margin-top: 10px;
+    }
+
+    // centering last sentences
+    &:nth-child(n+3) {
+      font-weight: 600;
+      font-size: 2.4vh;
+      text-align: center;
+    }
+  }
+
+  mat-card-actions {
+    padding: 10px;
+
+    button {
+      background-color: #1E344B;
+      color: #ADFFE3;
+    }
+  }
 }

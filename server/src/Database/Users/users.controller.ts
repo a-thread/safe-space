@@ -18,7 +18,8 @@ export class UsersController {
         @Body("favoriteBusinesses") favoriteBusinesses: [string],
         @Body("reviewedBusinesses") reviewedBusinesses: [string],
         @Body("location") location: string,
-        @Body("moreInfo") moreInfo: string
+        @Body("moreInfo") moreInfo: string,
+        @Body("photo") photo: string
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
         const generatedId = await this.usersService.insertUser(
             subId,
@@ -30,7 +31,8 @@ export class UsersController {
             favoriteBusinesses,
             reviewedBusinesses,
             location,
-            moreInfo
+            moreInfo,
+            photo
         );
         return { id: generatedId };
     }
@@ -78,7 +80,8 @@ export class UsersController {
         @Body("favoriteBusinesses") favoriteBusinesses: [string],
         @Body("reviewedBusinesses") reviewedBusinesses: [string],
         @Body("location") location: string,
-        @Body("moreInfo") moreInfo: string
+        @Body("moreInfo") moreInfo: string,
+        @Body("photo") photo: string
     ) {
         await this.usersService.updateUser(
             authSubId,
@@ -91,6 +94,7 @@ export class UsersController {
             reviewedBusinesses,
             location,
             moreInfo,
+            photo
         );
         return {"User": "updated"};
     }

@@ -16,12 +16,15 @@ div.background {
 
     @media screen and (max-width: 400px) {
       width: 300px;
-      padding: 40px 20px;
+      padding: 50px 30px;
       background-size: 100%;
     }
 
     mat-card-title {
       font-family: 'Open Sans', sans-serif;
+      font-style: italic;
+      font-size: 20px;
+      margin: 0;
     }
 
     mat-card-actions {

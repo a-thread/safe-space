@@ -22,10 +22,19 @@ export class ProfileComponent implements OnInit {
 
     public authData: any;
     public userProfileForm: FormGroup;
-    public profileData = '';
     public pronounSelection: string;
     public email = new FormControl('', [Validators.required, Validators.email]);
     static onProfileUpdate: any;
+    public posted: boolean = false;
+
+    public profileData: { 
+        username: string; 
+        pronouns: string; 
+        location: string; 
+        email: string; 
+        moreInfo: string; 
+        photo: string; };
+
     public user = {
         username: '',
         pronouns: '',
@@ -35,28 +44,8 @@ export class ProfileComponent implements OnInit {
     };
 
     ngOnInit(): void {
-        // this.auth.userProfile$.subscribe(data => {
-        //     console.log(data);
-        //     this.user = data;
-
-        //     let nameArray = data.name.split(' ');
-        //     console.log('nameArray === ', nameArray);
-
-        //     this.user.photo = data.picture;
-        //     this.user.firstName = nameArray[0];
-        //     this.user.lastName = nameArray[1];
-        //     this.user.username = data.nickname;
-        //     this.user.email = data.email;
-        //     let subArray = data.sub.split('|');
-        //     console.log('subArray === ', subArray);
-
-        //     this.user.sub = subArray[1];
-        //     console.log('this.user.sub === ', this.user.sub);
-
-        // })
         this.loadProfileDataFromLocalStorage();
         this.createForm();
-
     }
 
     createForm() {
@@ -67,7 +56,9 @@ export class ProfileComponent implements OnInit {
             'username': [null],
             'pronouns': [null],
             'location': [null],
-            'email': [null, [Validators.pattern(EMAIL_REGEXP)]]
+            'email': [null, [Validators.pattern(EMAIL_REGEXP)]],
+            'moreInfo': [null],
+            'photo': [null]
         });
     }
 
@@ -82,56 +73,44 @@ export class ProfileComponent implements OnInit {
         return this.userProfileForm.get('email').hasError('pattern') ? 'Not a valid email address.' : '';
     }
 
-    // checkProfileData(profileData) {
-
-    //     const {
-    //         username,
-    //         email
-    //     } = profileData;
-
-    //     const data = [username, email];
-
-    //     data.forEach(category => {
-    //         if (category) {
-    //             switch (category) {
-    //                 case username:
-    //                     this.user.username = username;
-    //                     break;
-    //                 case email:
-    //                     this.user.email = email;
-    //                     break;
-    //                 default:
-    //                     break;
-    //             }
-    //         }
-    //     })
-    // }
-
     //  EVENT where user submits new data to update their profile
-    async onProfileUpdate(profileData) {
-        console.log('profileData === ', profileData);
+    async onProfileUpdate(profileData: { username: string; pronouns: string; location: string; email: string; moreInfo: string; photo: string; }) {
 
-        //  IF no data was submitted we alert the user that they didn't enter anything
-        if (!profileData.username && !profileData.pronouns && !profileData.location && !profileData.email) {
+        //  IF no data was submitted
+        if (!profileData.username && !profileData.pronouns && !profileData.location && !profileData.email && !profileData.moreInfo && !profileData.photo) {
+
+            // we alert the user that they didn't enter anything
             return alert("You must enter data into one of the fields in order to update your profile.")
+
+            // otherwise
         } else {
-            //  SAVE submitted data to Local Storage
+
+            // we SAVE submitted data to Local Storage
             await this.saveToLocalStorage(profileData);
+
             //  UPDATE the user's data in the database
             this.updateUserInDb();
+
             //  Reload users updated data from Local Storage
             this.loadProfileDataFromLocalStorage();
         }
+
+        // creates a new form
         this.createForm();
+
+        // alerts 
+        this.posted = true;
     }
 
-    //  SAVE data to Local Storage after checking the new data against the currently saved data in Local Storage
+    //  SAVEs data to Local Storage after checking the new data against the currently saved data in Local Storage
     async saveToLocalStorage(data: any) {
 
         const newData = await this.checkNewDataForUpdates(data);
 
-        await this.storage.saveDataLocally(newData);
-        alert("Your information has been updated!");
+        this.storage.saveDataLocally(newData);
+        this.profileData = newData;
+
+        // alert("Your information has been updated!");
     }
 
     //  GET user data from Local Storage and assign the values to 'this.user'
@@ -152,25 +131,23 @@ export class ProfileComponent implements OnInit {
 
         this.user.photo = localStorageData.photo;
         this.user.username = localStorageData.username;
+        this.user.moreInfo = localStorageData.moreInfo;
     }
 
     //  UPDATE user's data in the database by grabbing the current data in Local Storage
     async updateUserInDb() {
         const localStorageData = await this.storage.getDataFromLocal();
-        const url: string = await `/api/user/${localStorageData.subId}`;
-        console.log('url === ', url);
+        const url: string = `/api/user/${localStorageData.subId}`;
 
-        console.log('updated user data === ', localStorageData);
-
-        await this.http.patch(url, localStorageData)
-            // and return the id of the response
+        this.http.patch(url, localStorageData)
+            // and returning the id of the response
             .subscribe((response) => {
-                console.log(response);  //  this 'response' will say {user: updated} as an object
+                console.log(response); //  this 'response' will say {user: updated} as an object
             })
     }
 
     //  Given some data, we compare it to Local Storage and return updated information and old information it user didn't want to update it
-    async checkNewDataForUpdates(data) {
+    async checkNewDataForUpdates(data: any) {
 
         //  GET user data from Local Storage
         const localStorageData = await this.storage.getDataFromLocal();
@@ -180,7 +157,9 @@ export class ProfileComponent implements OnInit {
             "username",
             "moreInfo",
             "pronouns",
-            "location"
+            "location",
+            "moreInfo",
+            "photo"
         ];
 
         //  Creating an object to hold the data from Local Storage that isn't getting updated

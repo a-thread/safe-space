@@ -36,16 +36,7 @@ data that we bring in from outside source -->
             <td mat-cell *matCellDef="let element" style="text-align: left;"> {{element.description}} </td>
         </ng-container>
 
-        <!-- Website Column -->
-        <ng-container matColumnDef="website">
-            <th mat-header-cell *matHeaderCellDef> Website </th>
-            <td mat-cell *matCellDef="let element">
-                <a *ngIf="element.website" href={{element.website}} target="_blank">
-                    <button mat-raised-button color="accent">visit</button>
-                </a>
-            </td>
-        </ng-container>
-
+        
         <!-- Contact Name Column
         <ng-container matColumnDef="contactName">
             <th mat-header-cell *matHeaderCellDef> Contact Name </th>
@@ -58,21 +49,31 @@ data that we bring in from outside source -->
             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
         </ng-container> -->
 
-        <!-- Phone Column
+        <!-- Phone Column -->
         <ng-container matColumnDef="phone">
             <th mat-header-cell *matHeaderCellDef> Phone </th>
             <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-        </ng-container> -->
+        </ng-container>
 
-        <!-- Member Owned Column
+        <!-- Member Owned Column -->
         <ng-container matColumnDef="memberOwned">
             <th mat-header-cell *matHeaderCellDef> LGBTQ Owned? </th>
             <td mat-cell *matCellDef="let element"> 
                 <a *ngIf="!element.memberOwned">No</a>
                 <a *ngIf="element.memberOwned">Yes!</a>
             </td>
-        </ng-container> -->
-
+        </ng-container>
+        
+        <!-- Website Column -->
+        <ng-container matColumnDef="website">
+            <th mat-header-cell *matHeaderCellDef> Website </th>
+            <td mat-cell *matCellDef="let element">
+                <a *ngIf="element.website" href={{element.website}} target="_blank">
+                    <button mat-raised-button color="accent">visit</button>
+                </a>
+            </td>
+        </ng-container>
+        
         <!-- In the event we want to add images to our table ... this might come in handy-->
         <!-- <ng-container matColumnDef="imageUrl">
             <th mat-header-cell *matHeaderCellDef> Image Url </th>

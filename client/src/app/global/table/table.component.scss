@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+
+app-header {
+  text-transform: capitalize;
+}
+
 table {
   width: 80%;
-  margin: 10px 0 0 0;
+  margin: 30px 0 0 0;
   background: rgba(0, 0, 0, .2);
+
+  @media screen and (max-width: 400px) {
+    margin-top: 10px;
+  }
   
   th {
     font-size: 14px;
@@ -36,7 +45,7 @@ div.button {
 
 }
 
-// inspired by: https://stackblitz.com/edit/material-table-responsive?file=src%2Fapp%2Ftable-basic-example.html
+// source: https://stackblitz.com/edit/material-table-responsive?file=src%2Fapp%2Ftable-basic-example.html
 
 @media (max-width: 768px) {
   table[matTableResponsive] {

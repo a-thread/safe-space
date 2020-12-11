@@ -9,18 +9,16 @@
     </mat-card>
 
     <div class="messages">
-      <p *ngFor="let message of messages">
-        <span class="userName">{{userName}}:</span> {{message}}
-      </p>
+      <p *ngFor="let object of dataArr"><span>{{object[0]}}:</span> {{object[1]}}</p>
     </div>
 
     <mat-toolbar>
       <textarea spellcheck="true" autoComplete="true" autocorrect="true" rows="1" class="chat-input"
         [(ngModel)]="message" placeholder="type message..." (keyup.enter)="addChat()">
           </textarea>
-      <mat-buttons slot="primary">
-        <mat-button (click)="addChat()" slot="end" class="send-chat-button">
-          <mat-icon slot="icon-only" name="send"></mat-icon>
+      <mat-buttons slot="primary" fxLayout="row" fxLayoutAlign="center">
+        <mat-button  fxLayout="row" fxLayoutAlign="center" (click)="addChat()" slot="end" class="send-chat-button">
+          <mat-icon slot="icon-only" name="send">send</mat-icon>
         </mat-button>
       </mat-buttons>
     </mat-toolbar>

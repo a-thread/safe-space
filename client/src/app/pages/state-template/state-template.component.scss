@@ -85,3 +85,17 @@ button.other {
   background-color: #ADFFE3;
   color: #1e344b;
 }
+
+div.button {
+  margin: 10px;
+
+  button {
+    margin: 10px;
+
+    &.other {
+      background-color: #ADFFE3;
+      color: #1e344b;
+    }
+  }
+
+}

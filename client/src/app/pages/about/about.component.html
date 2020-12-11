@@ -1,25 +1,30 @@
-<app-header title="About Us"></app-header>
 <div fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="mat-elevation-z0 about-card" #square (window:resize)="0" [ngStyle]="{'height.px': square}">
-        <h1 class="safe-space">SAFE SPACE</h1>
-        <mat-card-title class="about"><i>about us</i></mat-card-title>
+    <mat-card>
+        <mat-card-title>About Us</mat-card-title>
         <mat-card-content>
-            <p>Members of the LGBTQ communtiy have long faced social stigma, discrimination and emotional challenges. Chances are,
-                you or someone you know is currently enduring these hardships - has felt unwelcome in a restaurant, experienced 
-                sideways glances at a hotel, or struggled with basic community access. They may not know where or how to reach out
-                to others in their area. Safe Space is here to answer that call. Rather than scouring the web for
-                businesses and social media groups, you can sign up for your FREE Safe Space account and have
-                these resources at your fingertips. Find LGBTQ-friendly restaurants, hair salons, community resources, 
-                and even connect on video chat with others. Or add a business to our growing list. So, what are you waiting for? 
+            <p>The ability to experience the world safely is not a luxury afforded to everyone and most often, members
+                of the LGBTQ community rely on word-of-mouth to find businesses and resources that will provide safe
+                havens and community. One of the most frequent roadblocks is the decentralization of such information.
             </p>
             <p>
-                Join us and help make the LGBTQ community a Safe Space!
+                <strong>Safe Space offers a unique platform that helps the LGBTQ community safely expand their orbit by
+                connecting members with resources, businesses and community.</strong> With Safe Space, members are able to
+                securely and swiftly login with a social media account or email and password to access a database of
+                trusted community organizations and connect with fellow members via chat.
+            </p>
+            <p>
+                So, what are you waiting for?
+            </p>
+            <p>
+                Expand your orbit with a free account today!
             </p>
         </mat-card-content>
         <mat-card-actions>
+            <!-- Login Button -->
             <app-home-login-button></app-home-login-button>
             <br>
-            <button class="btnColor" routerLink="/home" mat-icon-button aria-label="home">
+            <!-- Home Button -->
+            <button routerLink="/home" mat-icon-button aria-label="home">
                 <mat-icon>home</mat-icon>
             </button>
         </mat-card-actions>

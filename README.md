@@ -1,7 +1,7 @@
 # SAFE SPACE 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![login screen](https://user-images.githubusercontent.com/65414966/101088204-4df6b800-3581-11eb-8952-e4d63a40c53d.png)
+![login screen](https://user-images.githubusercontent.com/66090689/101648197-942b9b80-3a07-11eb-837b-637f2cfdb582.png)
 
 ## Table of Contents
 * [Description](#description)
@@ -22,8 +22,12 @@ Once in the app, users can:
 - Review or update their profiles.
 - Access a sortable listing of LGBTQ-friendly and LGBTQ-owned restaurants, cafés and business by state.
 - Access a sortable listing of LGBTQ-friendly community and crisis resources.
-- Connect with other Safe Space members via a video chat
+- Connect with other Safe Space members via chat
 - Grow to the Safe Space orbit by contributing to both the resource and business listings.
+
+Due to the nature of this application, the platform was designed with mobile responsiveness in mind. Users can expect an enjoyable experience on their mobile devices while traveling amongst various safe spaces.
+
+<img width="492" alt="Mobile" src="https://user-images.githubusercontent.com/66090689/101649100-832f5a00-3a08-11eb-9b64-19f5af55e8d7.png">
 
 
 #### Deployed Application: [Check out Safe Space today!](https://safe-space-ne.herokuapp.com/)
@@ -33,19 +37,20 @@ Once in the app, users can:
 
 | Front-end          | Back-end         | Dev Tools      |
 |--------------------|------------------|----------------|
-| Angular            | Angular/Auth0    | Balsamiq       |
-| Angular/Material   | Axios            | dotenv         |
-| Font Awesome       | NestJS           | TSLint         |
+| Angular            | NestJS           | Balsamiq       |
+| Angular/Material   | Auth0            | dotenv         |
+| Typescript         | Socket.io        | TSLint         |
 | SCSS               | Heroku           | Google G Suite |
-| Canva              | TypeORM          | nodemon        |
-|                    | MongoDB          | Postman        |
-|                    |                  | Trello         |
+| Animate CSS        | MongoDB          | nodemon        |
+| RXJS               | Mongoose         | Postman        |
+| Canva              | Axios            | Trello         |
 
 ## Future Enhancements
 - Expand coverage to additional US States
 - Add information about state-specific LGBTQ and LGBTQ-adjacent legislation
 - Expand database categories and searchability
 - Create additional opportunities for connection
+- Increase chat functionality, add video option
 
 ## Contributors
 This was a joint project between the following developers:

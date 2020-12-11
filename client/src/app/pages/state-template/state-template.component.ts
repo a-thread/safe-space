@@ -32,7 +32,7 @@ export class StateTemplateComponent implements OnInit {
         
         // setting paths for routerLinks
         this.resourcePath = "/" + this.stateName + "-resource";
-        this.cafePath = "/" + this.stateName + "-cafe";
+        this.cafePath = "/" + this.stateName + "-coffee-shop";
         this.restaurantPath = "/" + this.stateName + "-restaurant";
         this.miscPath = "/" + this.stateName + "-misc";
 
